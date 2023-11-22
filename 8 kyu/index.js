@@ -25,7 +25,7 @@ console.log(stringy(6));
 
 // варіант 2
 function stringy2 (size) {
-  var str='';
+  let str='';
   for( var i=1; i<=size; i++ )
     str+=i%2;
   return str;
@@ -37,4 +37,5 @@ console.log(stringy2(6));
 const stringy3 = size =>
     ``.padStart(size, `10`);
   
-    console.log(stringy3(5));
+console.log(stringy3(5));
+    

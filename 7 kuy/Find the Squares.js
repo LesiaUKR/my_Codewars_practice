@@ -78,3 +78,111 @@ console.log(findSquares(81));
 
 //   return `${max2}-${min2}`;
 // };
+
+/*** Task ***/
+
+// let a = true;
+// let b = true;
+
+// console.log(a && b); //true
+// console.log(!a && b); //false
+// console.log(a && !b); //false
+// console.log(!(a && b)); //false
+// console.log(!a && !b); //false
+// console.log(!(!a && !b)); //true
+
+/*** Task ***/
+// const name = "Vasia";
+// Math.abs(name.length - 15);
+// console.log(Math.abs(name.length - 15));
+
+/*** Task ***/
+
+// console.log("after    " + "    before");
+// const result = 0.32 * 0.22 * 0.75;
+// console.log(result);
+
+/*** Task ***/
+
+// let a = 5;
+// console.log(++a);
+// console.log(a++);
+
+/*** Task ***/
+
+// 0 === 1; //false(strict equality, 0 is not equal to 1)
+// console.log(0 === 1);
+// 1 === "1"; //false (strict equality, different types)
+// console.log(1 === "1");
+// 1 == "1"; //true (loose equality, type coercion)
+// console.log(1 == "1");
+// 4 === 1 + 3; //true (strict equality, 1 + 3 equals 4)
+// console.log(4 === 1 + 3);
+// "A" > "a"; //false (comparing Unicode values, 'A' comes before 'a')
+// console.log("A" > "a");
+// "B" < "b"; //true (comparing Unicode values, 'B' comes before 'b')
+// console.log("B" < "b");
+// "13" > 12; //true (string comparison, '13' is greater than 12)
+// console.log("13" > 12);
+// "13px" > 12; //false (string comparison, '13px' is not a valid number)
+// console.log("13px" > 12);
+// "13px" < "14"; //true (string comparison, '13px' comes before '14' lexicographically)
+// console.log("13px" < "14");
+
+/*** Task ***/
+
+// Math.abs(Math.floor(-46.867));
+
+// /*** Task ***/
+
+// for (let i = 0; i <= 4; i++) {
+//   console.log(++i);
+// }
+
+/*** Task ***/
+
+// let i = 0;
+// let c = 0;
+// const str = "Rolling Scopes School";
+// while (i < str.length) {
+//   if (str[i] === "o") {
+//     c++;
+//   }
+//   i++;
+// }
+// console.log(c);
+
+/*** Task ***/
+
+// let a = true;
+// let b = true;
+
+// console.log(a || b); //true
+// console.log(!a || b); //true
+// console.log(a || !b); //true
+// console.log(!a || !b); //false
+// console.log(!(a || b)); //false
+// console.log(!(!a || !b)); //true
+
+/*** Task ***/
+
+// let a = 5;
+// console.log(++a);
+// console.log(a++);
+
+/*** Task ***/
+// const a = "";
+// const b = 9;
+// const c = null;
+
+// console.log(!!(!a || (!b && !c))); // true || (false && true) - true
+
+// console.log(!!(a || (!b && !c))); // false || (false && true) - false
+
+// console.log(!!(a || !b || c)); // (false || false ||false) - false
+
+// console.log(!(!a && b && !c)); // true && true && true - false
+
+// console.log(!(a || (!b && !c))); //false || (false && true) - true
+
+console.log('Hey there!' ?

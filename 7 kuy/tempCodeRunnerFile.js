@@ -1,21 +1,13 @@
-const findSquares = (num) => {
-  let squares = [];
-  let i = 1;
-  while (i < 1000000) {
-    squares.push(i * i);
-    i++;
-  }
+const a = "";
+const b = 9;
+const c = null;
 
-  for (let i = 0; i < squares.length - 1; i++) {
-    if (Math.abs(squares[i + 1] - squares[i]) === num) {
-      return `${squares[i + 1]}-${squares[i]}`;
-    }
-  }
-  return 1;
-};
+console.log(!!(!a || (!b && !c))); // true || (false && true) - true
 
-// Examples
-// console.log(findSquares(9));  // Output: "25-16"
-// console.log(findSquares(5)); // Output: "9-4"
-// console.log(findSquares(7)); // Output: "16-9"
-console.log(findSquares(81));
+console.log(!!(a || (!b && !c))); // false || (false && true) - false
+
+console.log(!!(a || !b || c)); // (false || false ||false) - false
+
+console.log(!(!a && b && !c)); // true && true && true - false
+
+console.log(!(a || (!b && !c))); //false || (false && true) - true

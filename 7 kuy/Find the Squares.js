@@ -131,8 +131,9 @@ console.log(findSquares(81));
 
 /*** Task ***/
 
-// Math.abs(Math.floor(-46.867));
+Math.abs(Math.floor(-46.867));
 
+console.log(Math.abs(Math.floor(-46.867)));
 // /*** Task ***/
 
 // for (let i = 0; i <= 4; i++) {
@@ -185,4 +186,42 @@ console.log(findSquares(81));
 
 // console.log(!(a || (!b && !c))); //false || (false && true) - true
 
-console.log('Hey there!' ?
+/*** Task ***/
+
+//  How to create a string with a valid greeting based on the name contained in the name variable?
+
+// let name = "Jack";
+// const greeting = 'Hello ${name}'
+// console.log(greeting);
+// const greeting = 'Hello ', name
+// console.log(greeting);
+// const greeting = 'Hello name'
+// console.log(greeting);
+// const greeting = "Hello " + name;
+// console.log(greeting);
+// const greeting = `Hello ${name}`
+// console.log(greeting);
+
+/*** Task ***/
+// let sum = 8 / 2 + 5 - -3 / 2;
+
+// console.log(sum);
+
+/*** Task ***/
+// const RS = "rs";
+// console.log("css", RS, "js");
+
+/*** Task ***/
+
+// let num = "4" * "9";
+// console.log(num);
+
+/*** Task ***/
+// let name = "Vasia";
+// name.length = 50;
+
+// The value of the length property for a string is read-only, and attempting to
+// modify it will not have any effect.
+// The length property will still reflect the actual length of the string, which is 5 in this case.
+
+/*** Task ***/

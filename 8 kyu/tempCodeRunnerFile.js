@@ -1,22 +1,21 @@
-function whatNumberIsIt(n) {
-  let message = "";
-  switch (true) {
-    case n === Number.MAX_VALUE:
-      message = " Input number is Number.MAX_VALUE";
-      break;
-    case n === Number.MIN_VALUE:
-      message = " Input number is Number.MIN_VALUE";
-      break;
-    case n === Number.POSITIVE_INFINITY:
-      message = " Input number is Number.POSITIVE_INFINITY";
-      break;
-    case n === Number.NEGATIVE_INFINITY:
-      message = " Input number is Number.NEGATIVE_INFINITY";
-      break;
-    default:
-      message = ` Input number is ${n}`;
-  }
-  return message;
+
+function colorOf(r, g, b) {
+  const redHex =
+    r.toString(16).length === 1
+      ? r.toString(16).padStart(2, 0)
+      : r.toString(16);
+  console.log(redHex);
+  const greenHex =
+    g.toString(16).length === 1
+      ? g.toString(16).padStart(2, 0)
+         : g.toString(16);
+   console.log(greenHex);
+  const blueHex =
+    b.toString(16).length === 1
+      ? b.toString(16).padStart(2, 0)
+      : b.toString(16);
+  const colorCode = `#${redHex}${greenHex}${blueHex}`;
+  return colorCode;
 }
 
-console.log(whatNumberIsIt(1.7976931348623157e308));
+console.log(colorOf(255, 0, 0))

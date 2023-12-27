@@ -1,21 +1,14 @@
-
-function colorOf(r, g, b) {
-  const redHex =
-    r.toString(16).length === 1
-      ? r.toString(16).padStart(2, 0)
-      : r.toString(16);
-  console.log(redHex);
-  const greenHex =
-    g.toString(16).length === 1
-      ? g.toString(16).padStart(2, 0)
-         : g.toString(16);
-   console.log(greenHex);
-  const blueHex =
-    b.toString(16).length === 1
-      ? b.toString(16).padStart(2, 0)
-      : b.toString(16);
-  const colorCode = `#${redHex}${greenHex}${blueHex}`;
-  return colorCode;
+function howManySmaller(arr, n) {
+  let fixedArray = arr.map((el) => el.toFixed(2));
+   console.log(fixedArray);
+   let count = "";
+   for (let i = 0; i <= fixedArray.length; i++){
+      if (fixedArray[i] < n) {
+      count++
+      }
+   
+   }
+   return count;
 }
 
-console.log(colorOf(255, 0, 0))
+console.log(howManySmaller([1.234, 1.235, 1.228], 1.24));

@@ -1,14 +1,15 @@
-function howManySmaller(arr, n) {
-  let fixedArray = arr.map((el) => el.toFixed(2));
-   console.log(fixedArray);
-   let count = "";
-   for (let i = 0; i <= fixedArray.length; i++){
-      if (fixedArray[i] < n) {
-      count++
-      }
-   
-   }
-   return count;
+function topSecret(str) {
+  const shift = 3;
+  let chars = str.split("");
+  let decodedStr = "";
+  console.log(chars);
+  for (let i = 0; i < chars.length; i++) {
+    let currentUnicode = chars[i].charCodeAt();
+    let previousUnicode = currentUnicode - shift;
+    console.log("currentUnicode", currentUnicode);
+    console.log("previousUnicode", previousUnicode);
+    decodedStr = String.fromCharCode();
+    console.log("decodedStr", decodedStr);
+  }
 }
-
-console.log(howManySmaller([1.234, 1.235, 1.228], 1.24));
+console.log(topSecret("Pb qdph lv Mrkq")); // "My name is John";

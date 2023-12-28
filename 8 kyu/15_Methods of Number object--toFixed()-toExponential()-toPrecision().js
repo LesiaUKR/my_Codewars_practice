@@ -98,7 +98,7 @@ console.log([a, b, c]);
 // howManySmaller([3.1288,3.1212,3.1205],3.1212) should return 2
 
 function howManySmaller(arr, n) {
-  let fixedArray = arr.map((el) => el.toFixed(2));
+  let fixedArray = arr.map((el) => parseFloat(el.toFixed(2)));
   console.log(fixedArray);
   let count = "";
   for (let i = 0; i <= fixedArray.length; i++) {

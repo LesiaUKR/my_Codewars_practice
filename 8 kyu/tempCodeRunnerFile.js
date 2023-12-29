@@ -1,37 +1,19 @@
-function topSecret(str) {
-  const shift = 3;
-  const totalAlphabetLength = 26;
-  let chars = str.split("");
-  let decodedStr = "";
+function fiveLine(s) {
+  // Remove leading and trailing whitespaces
+  s = s.trim();
 
-  console.log(chars);
+  // Initialize an empty string to store the result
+  let result = "";
 
-  for (let i = 0; i < chars.length; i++) {
-    const currentChar = chars[i];
-    const isUpperCase = chars[i] === chars[i].toUpperCase();
-
-    console.log(isUpperCase);
-
-    if (/^[A-Za-z]+$/.test(currentChar)) {
-      const baseCharCode = isUpperCase ? "A".charCodeAt(0) : "a".charCodeAt(0);
-      let currentUnicode = currentChar.charCodeAt();
-      console.log("currentUnicode", currentUnicode);
-      decodedUnicode =
-        ((currentUnicode - baseCharCode - shift + totalAlphabetLength) % 26) +
-        baseCharCode;
-      console.log("decodedUnicode", decodedUnicode);
-      decodedStr += String.fromCharCode(decodedUnicode);
-    } else {
-      decodedStr += currentChar;
-    }
+  // Loop from 1 to 5 to generate the lines
+  for (let i = 1; i <= 5; i++) {
+    // Use string template to concatenate s repeated i times
+    result += `${s.repeat(i)}\n`;
   }
-  return decodedStr;
+
+  // Remove the trailing newline character and return the result
+  return result.trim();
 }
 
-// console.log(topSecret("B"));
-// console.log("Y".charCodeAt());
-
-//console.log(topSecret("Pb qdph lv Mrkq")); // "My name is John";
-// console.log(topSecret("wklv lv dq hadpsoh")); // "this is an example";
-// console.log(topSecret("Khoor Zruog!")); // "Hello World!";
-console.log(topSecret("Wrs vhfuhw ilohv: Qr. 2478 Vxshu djhqw LIFOBS, rq d gdun qljkw, vwroh wkh Dssoh fruh iurp Qdwlrqdo Pxvhxp, fdxvlqj $100 ploolrq lq gdpdjh."));
+// Test cases
+console.log(fiveLine("  a"));

@@ -197,6 +197,13 @@ function topSecret(str) {
   return decodedStr;
 }
 
+//question1: The top secret file number is...
+answer1 = "2502";
+//question2: Super agent's name is...
+answer2 = "lmCCR";
+//question3: He stole the treasure is...
+answer3 = "Apple core";
+
 // console.log(topSecret("B"));
 // console.log("Y".charCodeAt());
 
@@ -208,3 +215,19 @@ console.log(
     "Wrs vhfuhw ilohv: Qr. 2478 Vxshu djhqw LIFOBS, rq d gdun qljkw, vwroh wkh Dssoh fruh iurp Qdwlrqdo Pxvhxp, fdxvlqj $100 ploolrq lq gdpdjh."
   )
 );
+
+/******** Task Solution 2 ********/
+
+// const topSecret = (str) =>
+//   str.replace(/[a-z]/gi, (c) =>
+//     String.fromCharCode(c.charCodeAt(0) + (/[abc]/i.test(c) ? 23 : -3))
+//   );
+
+/******** Task Solution 3 ********/
+function topSecret(str) {
+  var alph = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var dict = "xyzabcdefghijklmnopqrstuvwXYZABCDEFGHIJKLMNOPQRSTUVW";
+  return str.replace(/[a-z]/gi, (x) =>
+    String.fromCharCode(dict[alph.indexOf(x)].charCodeAt(0))
+  );
+}

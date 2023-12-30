@@ -185,9 +185,54 @@
 /******** Task Solution 1 ********/
 
 function shuffleIt(arr, ...arrays) {
-  const indexes = arrays;
-  console.log(indexes);
+  //   const indexes = arrays.flat(); //не підтримується у тестах
+  const indexes = [].concat(...arrays);
+  console.log("indexes", indexes);
 
-  for (let i = 0; i <= arr.length; i++) {}
+  for (let i = 0; i < indexes.length; i += 2) {
+    const index1 = indexes[i];
+    console.log("index1", index1);
+    const index2 = indexes[i + 1];
+    console.log("index2", index2);
+    if (
+      index1 >= 0 &&
+      index1 < arr.length &&
+      index2 >= 0 &&
+      index2 < arr.length
+    ) {
+      console.log("arr[index1], arr[index2]", arr[index1], arr[index2]);
+      console.log("arr[index2], arr[index1]", arr[index2], arr[index1]);
+      [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+    }
+  }
+  return arr;
 }
-console.log(shuffleIt([1, 2, 3, 4, 5], [1, 2]));
+// console.log(shuffleIt([1, 2, 3, 4, 5], [1, 2]));
+console.log(shuffleIt([1, 2, 3, 4, 5], [1, 2], [3, 4], [2, 3]));
+
+/******** Task Solution 2 ********/
+// var shuffleIt = (arr, ...ex) => {
+//   for ([a, b] of ex) [arr[a], arr[b]] = [arr[b], arr[a]];
+//   return arr;
+// };
+/******** Task Solution 3 ********/
+// function shuffleIt(arr, ...exchanges) {
+//   exchanges.forEach(([i, j]) => ([arr[i], arr[j]] = [arr[j], arr[i]]));
+//   return arr;
+// }
+
+/******** Task Solution 4 ********/
+
+// function shuffleIt(arr, ...p) {
+//   for (let i = 0; i < p.length; i++) {
+//     let a = p[i][0];
+//     let b = p[i][1];
+//     [arr[b], arr[a]] = [arr[a], arr[b]];
+//   }
+//   return arr;
+// }
+
+/******** Task Solution 5 ********/
+
+// var shuffleIt = (a, ...r) =>
+//   r.reduce((a, [i, j]) => (([a[i], a[j]] = [a[j], a[i]]), a), a);

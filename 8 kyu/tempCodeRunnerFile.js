@@ -1,19 +1,24 @@
-function fiveLine(s) {
-  // Remove leading and trailing whitespaces
-  s = s.trim();
+function shuffleIt(arr, ...arrays) {
+  const indexes = arrays.flat();
+  console.log("indexes", indexes);
 
-  // Initialize an empty string to store the result
-  let result = "";
-
-  // Loop from 1 to 5 to generate the lines
-  for (let i = 1; i <= 5; i++) {
-    // Use string template to concatenate s repeated i times
-    result += `${s.repeat(i)}\n`;
+  for (let i = 0; i < indexes.length; i += 2) {
+    const index1 = indexes[i];
+    console.log("index1", index1);
+    const index2 = indexes[i + 1];
+    console.log("index2", index2);
+    if (
+      index1 >= 0 &&
+      index1 < arr.length &&
+      index2 >= 0 &&
+      index2 < arr.length
+    ) {
+       console.log("arr[index1], arr[index2]", arr[index1], arr[index2]);
+            console.log("arr[index2], arr[index1]", arr[index2], arr[index1]);
+      [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+    }
   }
-
-  // Remove the trailing newline character and return the result
-  return result.trim();
+  return arr;
 }
-
-// Test cases
-console.log(fiveLine("  a"));
+// console.log(shuffleIt([1, 2, 3, 4, 5], [1, 2]));
+console.log(shuffleIt([1, 2, 3, 4, 5], [1, 2], [3, 4], [2, 3]));

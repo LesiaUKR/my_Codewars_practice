@@ -1,24 +1,20 @@
-function shuffleIt(arr, ...arrays) {
-  const indexes = arrays.flat();
-  console.log("indexes", indexes);
+function infiniteLoop(arr, d, n) {
 
-  for (let i = 0; i < indexes.length; i += 2) {
-    const index1 = indexes[i];
-    console.log("index1", index1);
-    const index2 = indexes[i + 1];
-    console.log("index2", index2);
-    if (
-      index1 >= 0 &&
-      index1 < arr.length &&
-      index2 >= 0 &&
-      index2 < arr.length
-    ) {
-       console.log("arr[index1], arr[index2]", arr[index1], arr[index2]);
-            console.log("arr[index2], arr[index1]", arr[index2], arr[index1]);
-      [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+    if (d === "left") {
+       console.log(arr[0].shift());
+       console.log(arr[arr.length-1].push(arr[0].shift()));
     }
-  }
-  return arr;
+
 }
-// console.log(shuffleIt([1, 2, 3, 4, 5], [1, 2]));
-console.log(shuffleIt([1, 2, 3, 4, 5], [1, 2], [3, 4], [2, 3]));
+
+console.log(
+  infiniteLoop(
+    [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9],
+    ],
+    "left",
+    1
+  )
+);

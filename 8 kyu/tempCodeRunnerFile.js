@@ -1,20 +1,13 @@
+function threeInOne(arr) {
+  let sumArrs = [];
+   for (var i = 0; i < arr.length; i += 3) {
+      console.log(arr[i]);
+      console.log(arr[i + 1]);
+            console.log(arr[i + 2]);
+    sumArrs.push(arr[i] + arr[i + 1] + arr[i + 2]);
+  }
+  return sumArrs;
+}
 
-const infiniteLoop = (arr, d, n) => {
-  const nums = arr.reduce((acc, v) => acc.concat(v), []);
-  while (n--) 
-    d === "left" ? nums.push(nums.shift()) : nums.unshift(nums.pop());
-
-  return arr.map((a) => Array.from({ length: a.length }, () => nums.shift()));
-};
-
-console.log(
-  infiniteLoop(
-    [
-      [1, 2, 3],
-      [4, 5, 6],
-      [7, 8, 9],
-    ],
-    "right",
-    1
-  )
-);
+// console.log(threeInOne([1, 2, 3])); // should return [6]
+console.log(threeInOne([1, 2, 3, 4, 5, 6])); 

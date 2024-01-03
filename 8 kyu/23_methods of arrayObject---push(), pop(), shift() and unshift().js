@@ -70,12 +70,44 @@
 // infiniteLoop( [[1,2],[3,4,5,6],[7,8,9,10]],"left",2) should return [[3,4],[5,6,7,8],[9,10,1,2]]
 
 /******** Task Solution 1 ********/
-function infiniteLoop(arr, d, n) {
-  if (d === "left") {
-    console.log(arr[0].shift());
-    console.log(arr[arr.length - 1].push(arr[0].shift()));
-  }
-}
+
+// function infiniteLoop(arr, d, n) {
+//   for (let i = 0; i < n; i++) {
+//     if (d == "left") {
+//       arr[arr.length - 1].push(arr[0].shift());
+//       for (let j = arr.length - 1; j > 0; j--) {
+//         arr[j - 1].push(arr[j].shift());
+//       }
+//     } else {
+//       arr[0].unshift(arr[arr.length - 1].pop());
+//       for (let j = 0; j < arr.length - 1; j++) {
+//         arr[j + 1].unshift(arr[j].pop());
+//       }
+//     }
+//   }
+//   return arr;
+// }
+
+// console.log(
+//   infiniteLoop(
+//     [
+//       [1, 2, 3],
+//       [4, 5, 6],
+//       [7, 8, 9],
+//     ],
+//     "left",
+//     1
+//   )
+// );
+
+/******** Task Solution 2 ********/
+
+const infiniteLoop = (arr, d, n) => {
+  const nums = arr.reduce((acc, v) => acc.concat(v), []);
+  while (n--) d === "left" ? nums.push(nums.shift()) : nums.unshift(nums.pop());
+
+  return arr.map((a) => Array.from({ length: a.length }, () => nums.shift()));
+};
 
 console.log(
   infiniteLoop(
@@ -84,7 +116,7 @@ console.log(
       [4, 5, 6],
       [7, 8, 9],
     ],
-    "left",
+    "right",
     1
   )
 );

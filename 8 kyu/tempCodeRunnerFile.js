@@ -1,11 +1,11 @@
-function infiniteLoop(arr, d, n) {
 
-    if (d === "left") {
-       console.log(arr[0].shift());
-       console.log(arr[arr.length-1].push(arr[0].shift()));
-    }
+const infiniteLoop = (arr, d, n) => {
+  const nums = arr.reduce((acc, v) => acc.concat(v), []);
+  while (n--) 
+    d === "left" ? nums.push(nums.shift()) : nums.unshift(nums.pop());
 
-}
+  return arr.map((a) => Array.from({ length: a.length }, () => nums.shift()));
+};
 
 console.log(
   infiniteLoop(
@@ -14,7 +14,7 @@ console.log(
       [4, 5, 6],
       [7, 8, 9],
     ],
-    "left",
+    "right",
     1
   )
 );

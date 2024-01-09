@@ -1,24 +1,40 @@
-
-function sortIt(arr) {
-  const newArray = arr.slice();
-  console.log(newArray);
-
-  let countObj = {};
-  newArray.forEach((element) => {
-    countObj[element] = (countObj[element] || 0) + 1;
-  });
-  newArray.sort((a, b) => {
-    console.log("countObj[a]", countObj[a]);
-    console.log("countObj[b]", countObj[b]);
-    if (countObj[a] === countObj[b]) {
-      return b - a; // Якщо кількості однакові, сортувати за значенням у зворотньому порядку.
+function isolateIt(arr) {
+  const divider = "|";
+  const newArr = arr.map((string) => {
+    let newString = "";
+    if (string.length % 2 === 0) {
+      console.log("string", string);
+      newString =
+        string.slice(0, string.length / 2) +
+        divider +
+        string.slice(string.length / 2);
+    } else {
+      console.log("string", string);
+      const middleIndex = Math.floor(string.length / 2);
+      console.log("middleIndex", middleIndex);
+      // newString = string.replace(string.charAt(middleIndex), divider);
+      console.log(middleIndex);
+      newString =
+        string.substring(0, middleIndex) +
+        divider +
+        string.substring(middleIndex+1);
+      console.log("newString else", newString);
     }
-    return countObj[a] - countObj[b]; // Інакше сортувати за кількістю у зростаючому порядку.
+    return newString;
   });
-
-  return newArray;
+  return newArr;
 }
 
-// console.log(sortIt([1, 1, 1, 2, 2, 3]));
-// console.log(sortIt([1, 1, 1, 2, 2, 2, 3, 3, 3]));
-console.log([1, 2, 3, 4, 4, 5, 5, 6, 6]);
+// console.log(isolateIt(["abcd", "efgh"])); //should return ["ab|cd","ef|gh"]
+// console.log(isolateIt(["abcde", "fghij"])); //should return ["ab|de","fg|ij"]
+// console.log(isolateIt(["1234", "56789"])); //should return ["12|34","56|89"]
+console.log(
+  isolateIt([
+    "*jmICwO4WH#F",
+    "ukHX$It%6h",
+    "qzRmwDCKo8",
+    "8%8C|D",
+    "utWKOMu3A",
+    "xY*c.x",
+  ])
+);

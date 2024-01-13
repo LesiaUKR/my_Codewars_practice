@@ -90,7 +90,58 @@ console.log(a, b); //output: 6 9
 
 // If no such number is found, return[-1,-1]
 
-function mirrorImage(arr) {}
+/******** Task Solution 1 ********/
+
+function mirrorImage(arr) {
+  let newArr = [];
+  arr.some((currentNumber, i) => {
+    const nextNumber = arr[i + 1];
+    const reversedNumber = parseInt(
+      String(nextNumber).split("").reverse().join(""),
+      10
+    );
+    if (currentNumber === reversedNumber) {
+      newArr.push(currentNumber, nextNumber);
+      return true;
+    } else return false;
+  });
+  return newArr.length === 0 ? [-1, -1] : newArr;
+}
+
+/******** Task Solution 2 ********/
+function mirrorImage(arr) {
+  var a, b;
+  var result = arr.some((x, i) => {
+    (a = x), (b = arr[i + 1]);
+    return x === Number(String(b).split("").reverse().join(""));
+  });
+
+  return result ? [a, b] : [-1, -1];
+}
+
+/******** Task Solution 3 ********/
+function mirrorImage(arr) {
+  for (var i = 0; i < arr.length - 1; i++) {
+    if (
+      arr[i].toString().split("").reverse().join("") === arr[i + 1].toString()
+    )
+      return [arr[i], arr[i + 1]];
+  }
+  return [-1, -1];
+}
+
+/******** Task Solution 4 ********/
+function mirrorImage(arr) {
+  let result = [-1, -1];
+
+  arr.some((_, i) => {
+    let a = String(arr[i]);
+    let b = [...String(arr[i + 1])].reverse().join("");
+    if (a == b) return (result = [arr[i], arr[i + 1]]);
+  });
+
+  return result;
+}
 
 console.log(mirrorImage([11, 22, 33, 33, 22, 11])); //should return [33,33]
 console.log(mirrorImage([454, 86, 57, 75, 16, 88])); //should return [57,75]

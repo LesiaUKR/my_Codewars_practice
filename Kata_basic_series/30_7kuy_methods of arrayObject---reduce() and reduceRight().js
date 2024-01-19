@@ -94,7 +94,7 @@ console.log(result); //output: [ 1, 6, 4, 7, 9, 8, 16, 9, 25, 10 ]
 // head of the next element are added together.
 // The results are put into an array.like this:
 
-// [123,456,789,1 2,3 4,5 6,78]
+// [123,456,789,1 2,34,56,78]
 //    3+4 6+7 9+1 2+3 4+5 6+7
 //     |   |   |   |   |   |
 //    [7 ,13 ,10 , 5 , 9 ,13]
@@ -105,7 +105,64 @@ console.log(result); //output: [ 1, 6, 4, 7, 9, 8, 16, 9, 25, 10 ]
 // All elements of arr are positive integer.If a number is less than 10,
 // its head and tail are the same.Please try to use reduce() solve this kata.
 
-Examples;
-tailAndHead([1, 2, 3, 4, 5]); //should return 945
-tailAndHead([111, 2345, 66, 78, 900]); //should return 7293
+/******** Task Solution 1 ********/
+
+function tailAndHead(arr) {
+  const result = arr.reduce(
+    (acc, current, index) => {
+      if (index > 0 && index <= arr.length - 1) {
+        const prevLastChar = acc.prev.toString().slice(-1);
+        console.log("prevLastChar", prevLastChar);
+        const currentFirstChar = current.toString().charAt(0);
+        console.log("currentFirstChar", currentFirstChar);
+        const sum = parseInt(prevLastChar, 10) + parseInt(currentFirstChar, 10);
+        console.log("sum", sum);
+        acc.sums.push(sum);
+        acc.prev = current;
+      }
+      return acc;
+    },
+    { prev: arr[0], sums: [] }
+  );
+
+  return result.sums.reduce((product, num) => product * num, 1);
+}
+
+/******** Task Solution 2 ********/
+function tailAndHead(arr) {
+  var prod = 1;
+  arr.reduce((prev, curr) => {
+    var s1 = prev.toString();
+    var s2 = curr.toString();
+    prod *= parseInt(s1[s1.length - 1]) + parseInt(s2[0]);
+    return curr;
+  });
+  return prod;
+}
+/******** Task Solution 3 ********/
+function tailAndHead(arr) {
+  return (
+    arr.reduce((a, b, i) => a * (+(arr[i] + "")[0] + (arr[i - 1] % 10))) /
+    arr[0]
+  );
+}
+/******** Task Solution 4 ********/
+function tailAndHead(arr) {
+  return arr
+    .slice(1)
+    .map((x, i) => (arr[i] % 10) + parseInt(x.toString().slice(0, 1)))
+    .reduce((a, b) => a * b);
+}
+/******** Task Solution 5 ********/
+function tailAndHead(arr) {
+  let value = [];
+  for (let i = 0; i < arr.length - 1; i++)
+    value.push((arr[i] % 10) + Number(String(arr[i + 1])[0]));
+  let result = value.reduce((a, b) => a * b);
+  return result;
+}
+// Example usage:
+console.log(tailAndHead([123, 456, 789, 12, 34, 56, 78])); //should return 532350
+// tailAndHead([1, 2, 3, 4, 5]); //should return 945
+console.log(tailAndHead([111, 2345, 66, 78, 900])); //should return 7293
 tailAndHead([35456, 782, 569, 2454, 875]); //should return 12012

@@ -81,7 +81,7 @@ console.log(result); //output: [ 1, 6, 4, 7, 9, 8, 16, 9, 25, 10 ]
 // This value is changed by the map() method([1, 4, 9, 16, 25]).
 // If we used arr1[i] reading the value, will be the value of the original array([1, 2, 3, 4, 5])
 
-// Task
+/******** Task ********/
 
 // Coding in function tailAndHead.
 // function accept 1 parameter arr(a number array).

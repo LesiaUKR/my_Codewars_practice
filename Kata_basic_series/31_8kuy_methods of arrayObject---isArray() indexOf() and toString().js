@@ -87,3 +87,114 @@ blackAndWhite([5, 13]); //should return "It's a black array"
 blackAndWhite([5, 12]); //should return "It's a white array"
 
 // Using string template and ternary operator can make your work easier.
+
+/******** Task Solution 1 ********/
+
+function blackAndWhite(arr) {
+  if (!Array.isArray(arr)) {
+    return "It's a fake array";
+  } else if (arr.includes(5) && arr.includes(13)) {
+    return "It's a black array";
+  } else {
+    return "It's a white array";
+  }
+}
+
+/******** Task Solution 2 ********/
+
+const blackAndWhite = (arr) =>
+  `It's a ${
+    !Array.isArray(arr)
+      ? `fake`
+      : arr.includes(5) && arr.includes(13)
+      ? `black`
+      : `white`
+  } array`;
+
+/******** Task Solution 3 ********/
+// ternary operator
+blackAndWhite = (a) =>
+  !Array.isArray(a)
+    ? `It's a fake array`
+    : ~a.indexOf(5) && ~a.indexOf(13)
+    ? `It's a black array`
+    : `It's a white array`;
+
+//template literal inner ternary operator
+blackAndWhite = (a) =>
+  `It's a ${
+    !Array.isArray(a)
+      ? "fake"
+      : ~a.indexOf(5) && ~a.indexOf(13)
+      ? "black"
+      : "white"
+  } array`;
+
+// without isArray()
+blackAndWhite = (a) =>
+  `It's a ${
+    !a || !a.map ? "fake" : ~a.indexOf(5) && ~a.indexOf(13) ? "black" : "white"
+  } array`;
+
+// includes()
+blackAndWhite = (a) =>
+  `It's a ${
+    !a || !a.map ? "fake" : a.includes(5) && a.includes(13) ? "black" : "white"
+  } array`;
+
+// match & RegExp
+blackAndWhite = (a) =>
+  `It's a ${
+    !a || !a.map
+      ? "fake"
+      : `${a}`.match(/(?=.*\b5\b)(?=.*\b13\b)/)
+      ? "black"
+      : "white"
+  } array`;
+
+// string-constant
+blackAndWhite = (a) =>
+  `It's a ${
+    "fake black white".split` `[
+      +!!(a && a.map) && +((a.includes(5) && a.includes(13)) || 2)
+    ]
+  } array`;
+
+// string's array-constant
+blackAndWhite = (a) =>
+  `It's a ${
+    ["fake", "black", "white"][
+      +!!(a && a.map) && +((a.includes(5) && a.includes(13)) || 2)
+    ]
+  } array`;
+
+blackAndWhite = (a) =>
+  `It's a ${
+    !a || !a.map
+      ? "fake"
+      : ["white", "black"][+(a.includes(5) && a.includes(13))]
+  } array`;
+/******** Task Solution 4 ********/
+function blackAndWhite(arr) {
+  //coding here...
+  if (!Array.isArray(arr)) {
+    return "It's a fake array";
+  } else if (arr.indexOf(5) !== -1 && arr.indexOf(13) !== -1) {
+    return "It's a black array";
+  }
+  return "It's a white array";
+}
+/******** Task Solution 5 ********/
+const blackAndWhite = (arr) => {
+  if (!Array.isArray(arr)) return "It's a fake array";
+
+  return `It's a ${
+    [5, 13].every((item) => arr.indexOf(item) > -1)
+      ? "black array"
+      : "white array"
+  }`;
+};
+console.log(blackAndWhite(5, 13));
+console.log(blackAndWhite([5, 13]));
+console.log(blackAndWhite([5, 12]));
+console.log(blackAndWhite([10, 4, 8, 7, 9, 13, 3, 6, 13, 3, 13]));

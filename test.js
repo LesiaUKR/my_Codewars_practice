@@ -164,3 +164,43 @@ console.dir(doSmth);
 //The output in the console would typically show the function doSmth and its properties before
 // and after its declaration.However, the specific content of the output can vary based on the
 // JavaScript environment and the console implementation.
+
+/******** Task 11 ********/
+
+/*
+ *    findElement(['Ace', 10, true], 10) => 1
+ *    findElement(['Array', 'Number', 'string'], 'Date') => -1
+ *    findElement([0, 1, 2, 3, 4, 5], 5) => 5
+ */
+function findElement(arr, value) {
+  let index = -1;
+  arr.some((item, i) => {
+    console.log("i", i);
+    console.log("item", item);
+    if (item === value) {
+      index = i;
+      return true;
+    }
+    return false;
+  });
+  return index;
+}
+
+console.log(findElement(["Ace", 10, true], 10));
+
+/******** Task 12 ********/
+
+//NOT SOLVED
+// function sumArrays(arr1, arr2) {
+//   const newArr = [];
+//   for (let i = 0; i <= arr1.length - 1; i += 1) {
+//     console.log("arr1[i]", arr1[i]);
+//     arr2.reduce((current) => {
+//       console.log("current", current);
+//       return newArr.push(arr1[i] + current);
+//     });
+//   }
+//   return newArr;
+// }
+
+// console.log(sumArrays([-1, 0, 1], [1, 2, 3, 4])); //[0, 2, 4, 4]);

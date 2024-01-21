@@ -1,11 +1,15 @@
-function debounce(f, ms) {
-   let isCooldown = false;
-   return function () {
-      if (isCooldown) return;
-      f.apply(this, arguments);
-      isCooldown = true;
-      setTimeout(() => isCooldown = false, ms);
-   };
+function findElement(arr, value) {
+    let index = -1;
+  arr.some((item, i) => {
+    console.log("i", i);
+    console.log("item", item);
+    if (item === value) {
+      index = i;
+      return true;
+    }return false;
+    
+  });
+  return index
 }
 
-let f = debounce(console.log, 1000);
+console.log(findElement(["Ace", 10, true], 10));

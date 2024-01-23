@@ -1,15 +1,17 @@
-
-function blackAndWhite(arr) {
-  if (!Array.isArray(arr)) {
-    return "It's a fake array";
-  } else if (arr.includes(5) && arr.includes(13)) {
-    return "It's a black array";
-  } else {
-    return "It's a white array";
+function roundIt(n) {
+  const slittedNumArr = n.toString().split(".");
+  const roundedN = "";
+  console.log(slittedNumArr);
+  for (let i = 0; i < slittedNumArr.length - 1; i++) {
+    if (slittedNumArr[i].length < slittedNumArr[i + 1].length) {
+      return Math.ceil(n);
+    } else if (slittedNumArr[i].length > slittedNumArr[i + 1].length) {
+      return Math.floor(n);
+    } else return Math.round(n);
   }
+  return roundedN;
 }
 
-console.log(blackAndWhite(5, 13));
-console.log(blackAndWhite([5, 13]));
-console.log(blackAndWhite([5, 12]));
-console.log(blackAndWhite([10, 4, 8, 7, 9, 13, 3, 6, 13, 3, 13]));
+// console.log(roundIt(3.45));
+// console.log(roundIt(34.5));
+console.log(roundIt(34.56));

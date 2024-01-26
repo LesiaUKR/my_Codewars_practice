@@ -70,15 +70,51 @@ console.log(Math.min(...arr)); //output: 1
 /******** Task Solution 1 ********/
 
 function maxMin(arr1, arr2) {
-  arr1.map((item) => {
-    const absoluteItem = Math.abs(item);
-    arr2.map((item2) => {
-      if (absoluteItem >= Math.abs(item)) {
-      }
-    });
-  });
+  let diffArr = [];
+  for (let i = 0; i < arr1.length; i++) {
+    console.log("arr1[i]", arr1[i]);
+    console.log("arr2[i]", arr2[i]);
+    console.log("arr1[i] - arr2[j]", arr1[i] - arr2[i]);
+    let difference = Math.abs(arr1[i] - arr2[i]);
+    console.log("difference", difference);
+    diffArr.push(difference);
+  }
+
+  let maxValue = Math.max(...diffArr);
+  let minValue = Math.min(...diffArr);
+  return [maxValue, minValue];
 }
 
-console.log(maxMin([1, 3, 5], [9, 8, 7])); // should return [8,2]
-console.log(maxMin([1, 10, 100, 1000], [0, 0, 0, 0])); // should return [1000,1]
+/******** Task Solution 2 ********/
+function maxMin(arr1, arr2) {
+  var rs = arr1.map((x, i) => Math.abs(x - arr2[i]));
+  return [Math.max(...rs), Math.min(...rs)];
+}
+/******** Task Solution 3 ********/
+function maxMin(arr1, arr2) {
+  var diffs = [];
+  for (i = 0; i < arr1.length; i++) {
+    diffs.push(Math.abs(arr1[i] - arr2[i]));
+  }
+  return [Math.max(...diffs), Math.min(...diffs)];
+}
+/******** Task Solution 4 ********/
+function maxMin(arr1, arr2) {
+  var k = arr1.reduce((a, b, i) => a.concat(Math.abs(b - arr2[i])), []);
+  return [Math.max(...k), Math.min(...k)];
+}
+/******** Task Solution 5 ********/
+const maxMin = (arr1, arr2) =>
+  arr1.reduce(
+    ([max, min], v, i) => (
+      [
+        (max = Math.max(Math.abs(v - arr2[i]), max)),
+        (min = Math.min(Math.abs(v - arr2[i]), min)),
+      ],
+      [max, min]
+    ),
+    [0, Infinity]
+  );
+// console.log(maxMin([1, 3, 5], [9, 8, 7])); // should return [8,2]
+// console.log(maxMin([1, 10, 100, 1000], [0, 0, 0, 0])); // should return [1000,1]
 console.log(maxMin([10, 20, 30, 40], [111, 11, 1, -111])); // should return [151,9]

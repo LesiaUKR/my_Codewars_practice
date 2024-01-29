@@ -111,13 +111,52 @@ console.log(intRoot3(16)); //output: true
   cutCube(512, 64); // should return true
 // If the side length of small cube is not a integer, should return false.
 
-cutCube(256, 8); // should return false
-cutCube(27, 3); // should return false
-cutCube(123, 456); // should return false
+/******** Task Solution 1 ********/
+
+function cutCube(volume, n) {
+  const x = Math.cbrt(volume);
+  const y = Math.cbrt(n);
+
+  if (x % y === 0) {
+    return true;
+  }
+
+  return false;
+}
+
+/******** Task Solution 2 ********/
+function cutCube(vol, n) {
+  return Number.isInteger(Math.cbrt(vol / n)) && Number.isInteger(Math.cbrt(n));
+}
+
+/******** Task Solution 3 ********/
+function cutCube(volume, n) {
+  const isCube = (n) => Math.pow(Math.round(Math.pow(n, 1 / 3)), 3) == n;
+  return isCube(n) && isCube(volume / n);
+}
+/******** Task Solution 4 ********/
+function cutCube(volume, n) {
+  console.log(Math.cbrt(n));
+  return (
+    Number.isInteger(Math.cbrt(n)) && Number.isInteger(Math.cbrt(volume / n))
+  );
+}
+/******** Task Solution 5 ********/
+
+// function cutCube(volume, n) {
+//   return [volume / n, n].map(Math.cbrt).every((x) => x == ~~x);
+// }
+
+console.log(cutCube(27, 27)); // should return true
+console.log(cutCube(512, 8)); // should return true
+console.log(cutCube(512, 64)); // should return true
+console.log(cutCube(256, 8)); // should return false
+console.log(cutCube(27, 3)); // should return false
+console.log(cutCube(123, 456)); // should return false
 // If it can't be divided evenly into n small cubes, should return false too.
 
-cutCube(50000, 50); // should return false
-cutCube(256, 4); // should return false
+console.log(cutCube(50000, 50)); // should return false
+console.log(cutCube(256, 4)); // should return false
 // The two examples above seems to meet our requirements,
 // but please note: a cube is unable to evenly divided into 50 pieces or 4 pieces.
 // Only cubic numbers(such as 8, 27, 64, 125, 216...) can be used to divide the cube evenly.

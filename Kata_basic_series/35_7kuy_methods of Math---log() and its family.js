@@ -80,3 +80,9 @@ console.log(Math.ceil(year4)); //output: 25
 
 // If you are interested in this form of kata,
 // I recommend to you my Thinking and Testing Series
+
+/******** Task Solution 1 ********/
+
+function thinkingAndTesting(number, base) {
+  return number - Math.pow(base, Math.floor(Math.log(number) / Math.log(base)));
+}

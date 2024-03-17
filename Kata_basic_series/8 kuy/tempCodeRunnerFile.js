@@ -1,24 +1,18 @@
-function points(games) {
-  let totalPoints = 0;
-  console.log("totalPoints", totalPoints);
-  for (let i = 0; i < games.length; i++) {
-    const match = games[i].split(":");
-    console.log("match", match);
-    console.log("match[0]", match[0]);
-    console.log("match[1]", match[1]);
-    console.log("totalPoints", totalPoints);
-    if (match[0] > match[1]) {
-      totalPoints += 3;
-      console.log("totalPoints", totalPoints);
-    } else if (match[0] === match[1]) {
-      totalPoints += 1;
+function dnaStrand(dna) {
+  let dnaArr = dna.split("");
+  let result = [];
+  for (let i = 0; i < dnaArr.length; i++) {
+    if (dnaArr[i] === "A") {
+      result.push("T");
+    } else if (dnaArr[i] === "T") {
+      result.push("A");
+    } else if (dnaArr[i] === "C") {
+      result.push("G");
+    } else if (dnaArr[i] === "G") {
+      result.push("C");
     }
-    totalPoints += 0;
   }
-
-  return totalPoints;
+  return `String ${dna} is ${result.join("")}`;
 }
 
-console.log(
-  points(["1:0", "2:0", "3:0", "4:0", "2:1", "3:1", "4:1", "3:2", "4:2", "4:3"])
-);
+console.log(dnaStrand("AAAA"))

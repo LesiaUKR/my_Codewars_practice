@@ -18,6 +18,9 @@ return total;
 
 };
 
+// Time: O(n^2)
+// Space: O(n^2)
+
 // const sumNumbersRecursive = (numbers) => {
 //  if(numbers.length === 0) return 0;
 

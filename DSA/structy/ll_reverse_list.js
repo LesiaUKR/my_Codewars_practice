@@ -2,12 +2,44 @@
 // argument. The function should reverse the order of the nodes in the linked 
 // list in-place and return the new head of the reversed linked list.
 
-const reverseList = (head) => {
- let current = head;
- let prev = null;
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
 
- 
+const reverseList = (head) => {
+ let current = head; //a
+ console.log("currentStart", current?.val)
+ let prev = null;
+ while(current !== null){
+ const next = current.next; //b
+ console.log("next", next?.val)
+ current.next = prev;
+ console.log("current.next", current.next?.val)
+ prev = current;
+ console.log("prev", prev?.val);
+ current = next;
+ console.log("current", current?.val);
+}
+console.log("prevEnd", prev.val)
+return prev;
 };
+// n = number of nodes
+// Time: O(n)
+// Space: O(1)
+
+
+const reverseList = (head, prev = null) => {
+ if(head === null ) return prev;
+ const next = head.next;
+ head.next = prev;
+ return reverseList(next, head);
+};
+// n = number of nodes
+// Time: O(n)
+// Space: O(n)
 
 //test_00
 const a = new Node("a");

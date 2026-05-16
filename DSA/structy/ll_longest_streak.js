@@ -11,25 +11,124 @@ class Node {
 }
 
 const longestStreak = (head) => {
-  if (head === null) return 0;
-
-  let maxStreak = 1;
-  let currentStreak = 1;
-  let current = head;
-
-  while (current.next !== null) {
-    if (current.val === current.next.val) {
-      currentStreak += 1;
-    } else {
-      if (currentStreak > maxStreak) maxStreak = currentStreak;
-      currentStreak = 1;
+    if (head === null) return 0;
+    let current = head;
+    let maxStreak = 0;
+    let curStreak = 0;
+    let prevVal = current.val;
+    while(current !== null){
+        if(current.val === prevVal){
+            curStreak +=1;
+        }else{
+            prevVal = current.val
+            curStreak = 1;
+        }
+        if(curStreak > maxStreak){
+            maxStreak = curStreak
+        }
+         current = current.next;
     }
-
-    current = current.next;
-  }
-
-  return currentStreak > maxStreak ? currentStreak : maxStreak;
+ return maxStreak;
 };
 
+// n = number of nodes
+// Time: O(n)
+// Space: O(1)
+
+// const longestStreak = (head) => {
+//   let maxStreak = 0;
+//   let currentStreak = 0;
+//   let currentNode = head;
+//   let prevVal = null;
+  
+//   while (currentNode !== null) {
+//     if (currentNode.val === prevVal) {
+//       currentStreak += 1;
+//     } else {
+//       currentStreak = 1;
+//     }
+    
+//     if (currentStreak > maxStreak) {
+//       maxStreak = currentStreak;
+//     }
+    
+//     prevVal = currentNode.val;
+//     currentNode = currentNode.next;
+//   }
+  
+//   return maxStreak;
+// };
+
 //test_00
-//test_00
+const a = new Node(5);
+const b = new Node(5);
+const c = new Node(7);
+const d = new Node(7);
+const e = new Node(7);
+const f = new Node(6);
+
+a.next = b;
+b.next = c;
+c.next = d;
+d.next = e;
+e.next = f;
+
+// 5 -> 5 -> 7 -> 7 -> 7 -> 6
+
+longestStreak(a); // 3
+
+//test_01
+const a = new Node(3);
+const b = new Node(3);
+const c = new Node(3);
+const d = new Node(3);
+const e = new Node(9);
+const f = new Node(9);
+
+a.next = b;
+b.next = c;
+c.next = d;
+d.next = e;
+e.next = f;
+
+// 3 -> 3 -> 3 -> 3 -> 9 -> 9
+
+longestStreak(a); // 4
+
+//test_02
+const a = new Node(9);
+const b = new Node(9);
+const c = new Node(1);
+const d = new Node(9);
+const e = new Node(9);
+const f = new Node(9);
+
+a.next = b;
+b.next = c;
+c.next = d;
+d.next = e;
+e.next = f;
+
+// 9 -> 9 -> 1 -> 9 -> 9 -> 9
+
+longestStreak(a); // 3
+
+//test_03
+const a = new Node(5);
+const b = new Node(5);
+
+a.next = b;
+
+// 5 -> 5
+
+longestStreak(a); // 2
+
+//test_04
+const a = new Node(4);
+
+// 4
+
+longestStreak(a); // 1
+
+//test_05
+longestStreak(null); // 0
